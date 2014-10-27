@@ -1,9 +1,15 @@
 package com.morcinek.classgraph.plugin;
 
-import com.intellij.openapi.actionSystem.*;
+import com.intellij.openapi.actionSystem.AnAction;
+import com.intellij.openapi.actionSystem.AnActionEvent;
+import com.intellij.openapi.actionSystem.PlatformDataKeys;
 import com.intellij.openapi.project.Project;
-import com.intellij.openapi.ui.Messages;
 import com.intellij.openapi.vfs.VirtualFile;
+import com.morcinek.uml.graph.SimulationVisualization;
+import com.morcinek.uml.relations.RelationsProvider;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Copyright 2014 Tomasz Morcinek. All rights reserved.
@@ -12,8 +18,11 @@ public class ShowClassGraph extends AnAction {
 
     public void actionPerformed(AnActionEvent event) {
         Project project = event.getData(PlatformDataKeys.PROJECT);
-        String txt = Messages.showInputDialog(project, "What is your name?", "Input your name", Messages.getQuestionIcon());
-        Messages.showMessageDialog(project, "Hello, " + txt + "!\n I am glad to see you.", "Information", Messages.getInformationIcon());
+        String path = project.getBasePath();
+        RelationsProvider relationsProvider = new RelationsProvider();
+        final Map<String, HashMap<String, Integer>> relations = relationsProvider.provideRelations(path);
+        SimulationVisualization simulationVisualization = new SimulationVisualization(relations);
+        simulationVisualization.setVisible(true);
     }
 
     @Override
