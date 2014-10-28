@@ -1,19 +1,17 @@
 <idea-plugin version="2">
-    <id>com.yourcompany.unique.plugin.id</id>
+    <id>com.morcinek.classgraph.plugin</id>
     <name>Plugin display name here</name>
     <version>1.0</version>
-    <vendor email="tomasz.morcinek@gmail.com" url="http://www.yourcompany.com">YourCompany</vendor>
+    <vendor email="tomasz.morcinek@gmail.com" url="http://morcinek.co.uk/">
+        Tomasz Morcinek
+    </vendor>
 
     <description><![CDATA[
-      Enter short description for your plugin here.<br>
-      <em>most HTML tags may be used</em>
+      Intellij/Android Studio Plugin for Code Analysis
     ]]></description>
 
     <change-notes><![CDATA[
-      Add change notes here.<br>
-      <em>most HTML tags may be used</em>
-    ]]>
-    </change-notes>
+            ]]></change-notes>
 
     <!-- please see http://confluence.jetbrains.com/display/IDEADEV/Build+Number+Ranges for description -->
     <idea-version since-build="131"/>
